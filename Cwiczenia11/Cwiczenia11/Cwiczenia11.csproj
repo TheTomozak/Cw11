@@ -1,8 +1,15 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20200514145149_AddedPrescriptionsTable.cs" />
+    <Compile Remove="Migrations\20200514145149_AddedPrescriptionsTable.Designer.cs" />
+    <Compile Remove="Migrations\20200514145343_AddedPrescriptionsTable.cs" />
+    <Compile Remove="Migrations\20200514145343_AddedPrescriptionsTable.Designer.cs" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.4" />

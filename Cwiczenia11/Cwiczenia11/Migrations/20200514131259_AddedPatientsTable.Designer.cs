@@ -4,14 +4,16 @@ using Cwiczenia11.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Cwiczenia11.Migrations
 {
     [DbContext(typeof(ClinicDbContext))]
-    partial class ClinicDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200514131259_AddedPatientsTable")]
+    partial class AddedPatientsTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -95,88 +97,7 @@ namespace Cwiczenia11.Migrations
 
                     b.HasKey("IdPatient");
 
-                    b.ToTable("Patients");
-                });
-
-            modelBuilder.Entity("Cwiczenia11.Models.Prescription", b =>
-                {
-                    b.Property<int>("IdPrescription")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DueDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("IdDoctor")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IdPatient")
-                        .HasColumnType("int");
-
-                    b.HasKey("IdPrescription");
-
-                    b.HasIndex("IdDoctor");
-
-                    b.HasIndex("IdPatient");
-
-                    b.ToTable("Prescriptions");
-                });
-
-            modelBuilder.Entity("Cwiczenia11.Models.Prescription_Medicament", b =>
-                {
-                    b.Property<int>("IdMedicament")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IdPrescription")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Details")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
-
-                    b.Property<int>("Dose")
-                        .HasColumnType("int");
-
-                    b.HasKey("IdMedicament", "IdPrescription");
-
-                    b.HasIndex("IdPrescription");
-
-                    b.ToTable("PrescriptionMedicaments");
-                });
-
-            modelBuilder.Entity("Cwiczenia11.Models.Prescription", b =>
-                {
-                    b.HasOne("Cwiczenia11.Models.Doctor", "Doctor")
-                        .WithMany()
-                        .HasForeignKey("IdDoctor")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Cwiczenia11.Models.Patient", "Patient")
-                        .WithMany()
-                        .HasForeignKey("IdPatient")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Cwiczenia11.Models.Prescription_Medicament", b =>
-                {
-                    b.HasOne("Cwiczenia11.Models.Medicament", "Medicament")
-                        .WithMany()
-                        .HasForeignKey("IdMedicament")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Cwiczenia11.Models.Prescription", "Prescription")
-                        .WithMany()
-                        .HasForeignKey("IdPrescription")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.ToTable("Patient");
                 });
 #pragma warning restore 612, 618
         }
