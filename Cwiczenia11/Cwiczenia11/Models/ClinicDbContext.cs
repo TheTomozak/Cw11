@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Cwiczenia11.Configurations;
+using Cwiczenia11.SampleData;
 using Microsoft.EntityFrameworkCore;
 
 namespace Cwiczenia11.Models
@@ -40,6 +41,12 @@ namespace Cwiczenia11.Models
             modelBuilder.ApplyConfiguration(new PatientsEfConfiguration());
             modelBuilder.ApplyConfiguration(new PrescriptionsEfConfiguration());
             modelBuilder.ApplyConfiguration(new PrescriptionsMedicamentsEfConfiguration());
+
+            modelBuilder.ApplyConfiguration(new AddSampleDataForDoctor());
+            modelBuilder.ApplyConfiguration(new AddSampleDataForMedicament());
+            modelBuilder.ApplyConfiguration(new AddSampleDataForPatient());
+            modelBuilder.ApplyConfiguration(new AddSampleDataForPrescription());
+            modelBuilder.ApplyConfiguration(new AddSampleDataForPrescriptionMedicament());
         }
     }
 }
