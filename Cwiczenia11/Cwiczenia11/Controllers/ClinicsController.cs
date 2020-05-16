@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Cwiczenia11.Models;
+using Cwiczenia11.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cwiczenia11.Controllers
 {
     [Route("api/clinic")]
     [ApiController]
-    public class ClinicsController : Controller
+    public class ClinicsController : ControllerBase
     {
 
-        private readonly ClinicDbContext _context;
+        private readonly IDbService _context;
 
 
-        public ClinicsController(ClinicDbContext context)
+        public ClinicsController(IDbService context)
         {
             _context = context;
         }
@@ -23,7 +24,9 @@ namespace Cwiczenia11.Controllers
         [HttpGet]
         public IActionResult GetDoctor()
         {
-            return Ok(_context.Doctors.ToList());
+            return Ok(_context.GetDoctors());
         }
+
+        
     }
 }
