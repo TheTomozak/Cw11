@@ -58,14 +58,13 @@ namespace Cwiczenia11.Services
 
         public string AddNewDoctor(AddNewDoctorRequest request)
         {
-            var selectMaxId = _context.Doctors.Max(e => e.IdDoctor) + 1;
-
+            
             var doctor = new Doctor
             {
                 FirstName = request.FirstName,
                 LastName = request.LastName,
                 Email = request.Email,
-                IdDoctor = selectMaxId
+               
             };
 
             _context.Attach(doctor);

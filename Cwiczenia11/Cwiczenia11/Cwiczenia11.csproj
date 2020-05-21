@@ -9,6 +9,10 @@
     <Compile Remove="Migrations\20200514145149_AddedPrescriptionsTable.Designer.cs" />
     <Compile Remove="Migrations\20200514145343_AddedPrescriptionsTable.cs" />
     <Compile Remove="Migrations\20200514145343_AddedPrescriptionsTable.Designer.cs" />
+    <Compile Remove="Migrations\20200520111730_ChangeDoseProperty.cs" />
+    <Compile Remove="Migrations\20200520111730_ChangeDoseProperty.Designer.cs" />
+    <Compile Remove="Migrations\20200520111943_ChangeDoseProperty.cs" />
+    <Compile Remove="Migrations\20200520111943_ChangeDoseProperty.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

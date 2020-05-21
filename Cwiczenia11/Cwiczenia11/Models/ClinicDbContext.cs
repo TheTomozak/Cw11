@@ -48,5 +48,7 @@ namespace Cwiczenia11.Models
             modelBuilder.ApplyConfiguration(new AddSampleDataForPrescription());
             modelBuilder.ApplyConfiguration(new AddSampleDataForPrescriptionMedicament());
         }
+
+        
     }
 }

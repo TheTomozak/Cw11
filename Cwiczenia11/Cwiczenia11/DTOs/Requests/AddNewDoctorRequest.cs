@@ -8,8 +8,7 @@ namespace Cwiczenia11.DTOs.Requests
 {
     public class AddNewDoctorRequest
     {
-        [Required]
-        public int IdDoctor { get; set; }
+        
         [Required]
         public string FirstName { get; set; }
         [Required]
